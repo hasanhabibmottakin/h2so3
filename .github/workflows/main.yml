@@ -2,7 +2,7 @@ name: Auto-generate Jio Files
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -13,37 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-   
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-   
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
-    
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pyzipper==0.3.6
+          python -m pip install requests pyzipper==0.3.6
 
-  
+      - name: Check installed packages
+        run: python -m pip list
+
       - name: Extract protected app.zip
         env:
           ZIP_PWD: ${{ secrets.ZIP_PWD }}
-        run: |
-          python run.py
+        run: python run.py
 
-  
       - name: Run app.py
-        run: |
-          python app.py
+        run: python app.py
 
-      
       - name: Commit and push changes
         env:
           GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
