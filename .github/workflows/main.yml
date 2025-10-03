@@ -1,8 +1,8 @@
-name: Secure Run Jio App
+name: Auto-generate Jio Files
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/30 * * * *"   # প্রতি 30 মিনিটে রান হবে
   workflow_dispatch:
 
 permissions:
@@ -13,71 +13,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
 
+      # 2️⃣ Set up Python
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.11"
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install requests pyzipper==0.3.6
+          python -m pip install --upgrade pip
+          pip install requests pyzipper==0.3.6
 
-      - name: Check if ZIP exists
-        run: |
-          if [ ! -f "app.zip" ]; then
-            echo "app.zip not found! Aborting."
-            exit 1
-          else
-            echo "app.zip found, proceeding..."
-          fi
-
-      - name: Check ZIP_PWD
-        run: |
-          if [ -z "$ZIP_PWD" ]; then
-            echo "ZIP_PWD secret missing! Cannot unzip."
-            exit 1
-          else
-            echo "ZIP_PWD is set."
-          fi
+      # 4️⃣ Extract protected app.zip
+      - name: Extract protected app.zip
         env:
           ZIP_PWD: ${{ secrets.ZIP_PWD }}
-
-      - name: Extract app.zip (if needed)
         run: |
-          python3 - <<EOF
-          import os, sys, pyzipper
+          python run.py
 
-          ZIP_PATH = "app.zip"
-          OUT_DIR = "."
-          pwd = os.environ.get("ZIP_PWD")
-
-          # only extract if zip exists and pwd provided
-          if os.path.exists(ZIP_PATH) and pwd:
-              with pyzipper.AESZipFile(ZIP_PATH, 'r') as zf:
-                  zf.setpassword(pwd.encode())
-                  zf.extractall(path=OUT_DIR)
-                  print("Extraction successful.")
-          else:
-              print("Skipping extraction.")
-          EOF
-        env:
-          ZIP_PWD: ${{ secrets.ZIP_PWD }}
-
+      # 5️⃣ Run app.py to generate files
       - name: Run app.py
-        run: python3 app.py
+        run: |
+          python app.py
 
-      - name: Commit changes (if any)
+      # 6️⃣ Commit and push generated files
+      - name: Commit and push changes
         env:
           GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet || git commit -m "Auto api updated $(date -u +'%Y-%m-%d %H:%M:%S')"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git commit -m "Auto update all data $(date -u +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push https://x-access-token:${GIT_TOKEN}@github.com/${{ github.repository }} HEAD:main
