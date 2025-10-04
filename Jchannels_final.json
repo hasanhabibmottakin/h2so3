@@ -7,6 +7,14 @@
         "language": "IN",
         "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/CNBC_Tv18_Prime_HD_MOB/Fallback/index.m3u8?__hdnea__=st=1759589483~exp=1759675883~acl=/*~hmac=4d87732813ed8bce8d2a8a7cf259577424f021274011ec2a554d26e58c65e6c4"
     },
+    "26262": {
+        "id": "26262",
+        "title": "test",
+        "logo": "test",
+        "genre": "test",
+        "language": "test",
+        "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/Six_HD_MOB/Fallback/index.m3u8?__hdnea__=st=1759589483~exp=1759675883~acl=/*~hmac=4d87732813ed8bce8d2a8a7cf259577424f021274011ec2a554d26e58c65e6c4"
+    },
     "166": {
         "id": "166",
         "title": "Cartoon Network Telugu",
