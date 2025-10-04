@@ -7,6 +7,22 @@
         "language": "IN",
         "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/CNBC_Tv18_Prime_HD_MOB/Fallback/index.m3u8"
     },
+     "144": {
+        "id": "144",
+        "title": "Colors HD",
+        "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Colors_HD.png",
+        "genre": "Entertainment",
+        "language": "IN",
+        "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/Colors_HD_MOB/Fallback/index.m3u8"
+    },
+     "146": {
+        "id": "146",
+        "title": "History HD",
+        "logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/History_HD.png",
+        "genre": "Infotainment",
+        "language": "English",
+        "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/History_HD_MOB/Fallback/index.m3u8"
+    },
     "166": {
         "id": "166",
         "title": "Cartoon Network Telugu",
@@ -8591,46 +8607,6 @@
         "language": "IN",
         "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/Yahoo_Finance/HLSPartner/index.m3u8"
     },
-    "3347": {
-        "id": "3347",
-        "title": "Asia Cup English",
-        "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Asia_Cup_English.png",
-        "genre": "Sports",
-        "language": "IN",
-        "playbackURL": "https://jiotvbpklive.cdn.jio.com/bpk-tv/Sony_Notification_Android/Fallback/index.m3u8"
-    },
-    "3348": {
-        "id": "3348",
-        "title": "Asia Cup Hindi",
-        "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Asia_Cup_Hindi.png",
-        "genre": "Sports",
-        "language": "IN",
-        "playbackURL": "https://jiotvbpklive.cdn.jio.com/bpk-tv/Sony_Notification_Android/Fallback/index.m3u8"
-    },
-    "3349": {
-        "id": "3349",
-        "title": "Asia Cup Tamil",
-        "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Asia_Cup_Tamil.png",
-        "genre": "Sports",
-        "language": "IN",
-        "playbackURL": "https://jiotvbpklive.cdn.jio.com/bpk-tv/Sony_Notification_Android/Fallback/index.m3u8"
-    },
-    "3350": {
-        "id": "3350",
-        "title": "Asia Cup Telugu",
-        "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Asia_Cup_Telugu.png",
-        "genre": "Sports",
-        "language": "IN",
-        "playbackURL": "https://jiotvbpklive.cdn.jio.com/bpk-tv/Sony_Notification_Android/Fallback/index.m3u8"
-    },
-    "3351": {
-        "id": "3351",
-        "title": "Sony LIV Sports",
-        "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_LIV_Sports.png",
-        "genre": "Sports",
-        "language": "IN",
-        "playbackURL": "https://jiotvbpklive.cdn.jio.com/bpk-tv/Sony_Notification_Android/Fallback/index.m3u8"
-    },
     "3352": {
         "id": "3352",
         "title": "Janataa TV Kannada",
@@ -8694,13 +8670,5 @@
         "genre": "Entertainment",
         "language": "IN",
         "playbackURL": "https://jiotvmblive.cdn.jio.com/bpk-tv/subintvtamil/HLSPartner/index.m3u8"
-    },
-    "3362": {
-        "id": "3362",
-        "title": "Asia Cup Bengali",
-        "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Asia_Cup_Bengali.png",
-        "genre": "Sports",
-        "language": "IN",
-        "playbackURL": "https://jiotvbpklive.cdn.jio.com/bpk-tv/Sony_Notification_Android/Fallback/index.m3u8"
     }
 }
